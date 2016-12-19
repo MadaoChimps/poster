@@ -1,0 +1,14 @@
+//
+   Created by Aaron on 2016/12/19 0019.
+if locals.user
+    #menu
+        span.name #{user.name}
+        | &nbsp;&nbsp;
+        a(href='/post') post
+        | &nbsp;&nbsp;
+        a(href='/logout') logout
+else
+    #menu
+        a(href='/login') login
+        | &nbsp;&nbsp;
+        a(href='/register') register

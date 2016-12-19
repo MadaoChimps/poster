@@ -1,0 +1,16 @@
+//
+   Created by Aaron on 2016/12/19 0019.
+doctype html
+html
+    head
+        title #{title}
+        link(rel='stylesheet' href='/stylesheets/style.css')
+    body
+        include menu
+        h1 #{title}
+        p Fill in the form below to sign in!
+        include messages
+        form(action='/login' method='post')
+            p: input(type='text' name='user[name]' placeholder='Username')
+            p: input(type='password' name='user[pass]' placeholder='Password')
+            p: input(type='submit' value='Login')

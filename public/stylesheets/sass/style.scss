@@ -1,0 +1,31 @@
+$fontStack:"Lucida Grande", Helvetica, Arial, sans-serif;
+$fontSize:14px;
+
+body {
+  padding:60px;
+  font:$fontSize $fontStack;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#menu {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 12px;
+  color: #888;
+
+  a{
+    text-decoration: none;
+    margin-left: 5px;
+    color: black;
+  }
+
+  .name{
+    &:after {
+      content: ' -';
+    }
+  }
+}

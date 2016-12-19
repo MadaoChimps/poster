@@ -1,0 +1,15 @@
+//
+   Created by Aaron on 2016/12/19 0019.
+doctype html
+html
+    head
+        title #{title}
+        link(rel='stylesheet' href='/stylesheets/style.css')
+    body
+        include menu
+        each entry in entries
+            div.entry
+                h3 #{entry.title}
+                p #{entry.body}
+                p Posted by #{entry.username}
+        include pager
