@@ -11,5 +11,8 @@ html
             div.entry
                 h3 #{entry.title}
                 p #{entry.body}
+                p
+                  a(href="/del/#{entry.id}") 删除
+                  a(href="/update/#{entry.id}") 修改
                 p Posted by #{entry.username}
         include pager

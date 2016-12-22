@@ -1,0 +1,17 @@
+//
+   Created by Aaron on 2016/12/19 0019.
+doctype  html
+html
+    head
+        title #{title}
+        link(rel='stylesheet' href='/stylesheets/style.css')
+    body
+        include menu
+        h1 #{title}
+        p Fill in the form below to add a new post.
+        include messages
+        form(action='/update' method='post')
+            p: input(type='hidden' name='entry[id]' value='#{entry.id}')
+            p: input(type='text' name='entry[title]' placeholder='Title' value='#{entry.title}')
+            p: textarea(name='entry[body]' value='#{entry.body}')
+            p: input(type='submit' value='Post')

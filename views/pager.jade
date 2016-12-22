@@ -4,6 +4,9 @@
     if page.count>1
         if page.number
             a#prev(href="/#{page.number}") Prev
+
+        #{page.number+1} / #{page.count}
+
         if page.number<page.count-1
             if page.number
                 | &nbsp;&nbsp;

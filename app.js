@@ -19,7 +19,7 @@ var Entry = require('./lib/entry');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3300);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -47,6 +47,17 @@ app.get('/login', login.form);
 app.post('/login', login.submit);
 app.get('/logout', login.logout);
 app.get('/post', entries.form);
+app.get("/del/:id?",entries.del);
+
+app.post(
+    '/update',
+    validate.required('entry[title]'),
+    validate.lengthAbove('entry[title]', 4),
+    entries.update2
+);
+
+app.get("/update/:id?",entries.update1);
+
 app.post(
    '/post',
    validate.required('entry[title]'),
@@ -56,7 +67,7 @@ app.post(
 app.get('/api/user/:id', api.user);
 app.post('/api/entry', entries.submit);
 app.get('/api/entries/:page?', page(Entry.count), api.entries);
-app.get('/:page?', page(Entry.count, 5), entries.list);
+app.get('/:page?', page(5), entries.list);
 
 if (process.env.ERROR_ROUTE) {
   app.get('/dev/error', function(req, res, next){
